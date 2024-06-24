@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Event Handling in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .event-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .event-box:hover {
+            background-color: #f9f9f9;
+        }
+
+        #mouse-area {
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body onload="pageLoaded()">
+
+    <h1>EVENTS IN JS...</h1>
+    <div class="event-box" onclick="clickHandler()">Click me!</div>
+
+    <div class="event-box" ondblclick="dblClickHandler()">Double Click me!</div>
+
+    <div class="event-box">
+        <label for="input-field">Type something: </label>
+        <input type="text" id="input-field" onkeypress="keyPressHandler(event)" onkeydown="keyDownHandler(event)"
+            onkeyup="keyUpHandler(event)">
+    </div>
+
+    <div class="event-box" id="mouse-area" onmouseover="mouseOverHandler()" onmousemove="mouseMoveHandler(event)"
+        onmouseout="mouseOutHandler()">
+        Move the mouse here
+    </div>
+
+    <div class="event-box">
+        <label for="select-box">Choose an option: </label>
+        <select id="select-box" onchange="changeHandler()">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option 3">Option 3</option>
+        </select>
+    </div>
+
+    <script>
+        function pageLoaded() {
+            alert("Page has loaded!");
+        }
+
+        function clickHandler() {
+            alert("Element clicked!");
+        }
+
+        function dblClickHandler() {
+            alert("Element double-clicked!");
+        }
+
+        function keyPressHandler(event) {
+            console.log("Key pressed: " + event.key);
+        }
+
+        function keyDownHandler(event) {
+            console.log("Key down: " + event.key);
+        }
+
+        function keyUpHandler(event) {
+            console.log("Key up: " + event.key);
+        }
+
+        function mouseOverHandler() {
+            console.log("Mouse over the area!");
+        }
+
+        function mouseMoveHandler(event) {
+            console.log("Mouse move: X=" + event.clientX + " Y=" + event.clientY);
+        }
+
+        function mouseOutHandler() {
+            console.log("Mouse out of the area!");
+        }
+
+        function changeHandler() {
+            const selectBox = document.getElementById("select-box");
+            console.log("Selected option: " + selectBox.value);
+        }
+    </script>
+
+</body>
+
+</html>
